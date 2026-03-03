@@ -36,28 +36,28 @@ jobs:
         run: docker compose up -d
 
       - name: Wait for containers to be ready
-          run: |
-            echo "Waiting for MySQL..."
-            sleep 20
+        run: |
+          echo "Waiting for MySQL..."
+          sleep 20
 
       - name: Check running containers
-          run: docker ps
+        run: docker ps
 
       - name: Test MySQL connection from backend container
-          run: |
-            docker exec github-action--spring-boot-app-1 \
-            sh -c "nc -zv mysql 3306"
+        run: |
+          docker exec github-action--spring-boot-app-1 \
+          sh -c "nc -zv mysql 3306"
 
       - name: Wait for Spring Boot to start
-          run: |
-            echo "Waiting for Spring Boot..."
-            sleep 20
-            curl -f http://localhost:8081 || exit 1
+        run: |
+          echo "Waiting for Spring Boot..."
+          sleep 20
+          curl -f http://localhost:8081 || exit 1
 
       - name: Test frontend to backend communication
-          run: |
-            docker exec github-action--angular-app-1 \
-            sh -c "wget -qO- http://spring-boot-app:8081 || exit 1"
+        run: |
+          docker exec github-action--angular-app-1 \
+          sh -c "wget -qO- http://spring-boot-app:8081 || exit 1"
       - name: Check running containers
           run: docker ps
 
