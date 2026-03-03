@@ -55,10 +55,8 @@ jobs:
 
       - name: Test frontend to backend communication
         run: |
-           docker exec github-action--angular-app-1 \
-           sh -c 'status=$(wget -S --spider http://spring-boot-app:8081/user/all 2>&1 | grep "HTTP/" | tail -1 | awk "{print $2}"); \
-           if [ "$status" != "200" ]; then exit 1; fi'
-
+          docker exec github-action--angular-app-1 \
+          sh -c "wget -S --spider http://spring-boot-app:8081/user/all"
       - name: Check running containers
         run: docker ps
 
