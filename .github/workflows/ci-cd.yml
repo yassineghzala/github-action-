@@ -59,5 +59,5 @@ jobs:
           docker exec github-action--angular-app-1 \
           sh -c "wget -qO- http://spring-boot-app:8081 || exit 1"
       - name: Check running containers
-          run: docker ps
+        run: docker ps
 
