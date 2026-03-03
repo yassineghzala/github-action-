@@ -43,11 +43,6 @@ jobs:
       - name: Check running containers
         run: docker ps
 
-      - name: Test MySQL connection from backend container
-        run: |
-          docker exec github-action--spring-boot-app-1 \
-          sh -c "nc -zv mysql 3306"
-
       - name: Wait for Spring Boot to start
         run: |
           echo "Waiting for Spring Boot..."
