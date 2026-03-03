@@ -21,10 +21,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Backend Image
-        run: docker build -t backend:latest .
+        run: docker build -t backend:latest "C:\Users\MSI\Desktop\dev\gitgithub\deploy-app-spring-angular\springboot\app"
 
       - name: Build Frontend Image
-        run: docker build -t frontend:latest .
+        run: docker build -t frontend:latest "C:\Users\MSI\Desktop\dev\gitgithub\deploy-app-spring-angular\angular-app"
 
       - name: Push Backend Image
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/backend:latest
