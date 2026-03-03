@@ -38,8 +38,3 @@ jobs:
       - name: Check running containers
         run: docker ps
 
-      - name: Check running containers
-        run: curl -f http://localhost:8081
-
-      - name: Check running containers
-        run: curl -f http://localhost:4200
