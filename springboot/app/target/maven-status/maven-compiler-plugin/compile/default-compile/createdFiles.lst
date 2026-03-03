@@ -1,0 +1,6 @@
+com\oauth\demo\entities\User.class
+com\oauth\demo\services\UserService.class
+com\oauth\demo\repositories\UserRepository.class
+com\oauth\demo\config\CorsConfig.class
+com\oauth\demo\DemoApplication.class
+com\oauth\demo\controllers\UserController.class
