@@ -21,10 +21,10 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Backend Image
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/backend:latest ../../springboot/app
+        run: docker build -t backend:latest .
 
       - name: Build Frontend Image
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/frontend:latest ./frontend
+        run: docker build -t frontend:latest .
 
       - name: Push Backend Image
         run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/backend:latest
