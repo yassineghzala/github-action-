@@ -56,7 +56,7 @@ jobs:
         run: |
           echo "Waiting for Spring Boot..."
           sleep 20
-          curl -f http://172.16.91.176:8081/user/all || exit 1
+          curl -f http://localhost:8081/user/all || exit 1
 
       - name: Test frontend to backend communication
         run: |
