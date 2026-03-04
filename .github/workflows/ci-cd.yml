@@ -20,6 +20,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Build Spring Boot app
+        working-directory: springboot/app
+        run: mvn clean package -DskipTests
+
+
       - name: Build Backend Image
         run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/backend:latest ./springboot/app/
 
@@ -60,4 +65,3 @@ jobs:
       - name: Check running containers
         run: docker ps
 
-²
